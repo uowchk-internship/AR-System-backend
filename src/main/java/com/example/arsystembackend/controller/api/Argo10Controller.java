@@ -18,14 +18,25 @@ public class Argo10Controller {
         this.argo10Services = argo10Services;
     }
 
-    @PostMapping("/save")
-    public String saveNewArgo10(@RequestBody List<Argo10> argo10List){
+    @PostMapping("/")
+    public String saveNewArgo10(@RequestBody List<Argo10> argo10List) {
         argo10Services.saveData(argo10List);
         return "done";
     }
 
+    @GetMapping("/")
+    public List<Argo10> getAllArgo10() {
+        return argo10Services.getAll();
+    }
+
+    @GetMapping("/count")
+    public int getArgo10Count() {
+        return argo10Services.getAll().size();
+    }
+
+
     @GetMapping("/removeAll")
-    public String removeAllArgo10(){
+    public String removeAllArgo10() {
         argo10Services.removeAll();
         return "done";
     }

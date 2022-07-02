@@ -29,15 +29,22 @@ public class Argo10DAOService implements Argo10DAO{
     @Override
     public List<Argo10> getAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("FROM argo10", Argo10.class);
+        Query query = currentSession.createQuery("FROM Argo10", Argo10.class);
         List<Argo10> users = query.getResultList();
         return users;
     }
 
     @Override
+    public void testConnection() {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query query = currentSession.createQuery("FROM Argo10", Argo10.class);
+        query.getFirstResult();
+    }
+
+    @Override
     public void removeAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("DELETE FROM argo10");
-        query.executeUpdate();
+        currentSession.createQuery("DELETE FROM Argo10")
+                .executeUpdate();
     }
 }

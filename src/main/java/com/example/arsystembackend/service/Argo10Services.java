@@ -10,6 +10,8 @@ public interface Argo10Services {
 
     public List<Argo10> getAll();
 
+    public void testConnection();
+
     public void removeAll();
 
 }

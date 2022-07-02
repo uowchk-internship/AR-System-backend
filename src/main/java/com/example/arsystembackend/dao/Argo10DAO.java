@@ -10,5 +10,7 @@ public interface Argo10DAO {
 
     public List<Argo10> getAll();
 
+    public void testConnection();
+
     public void removeAll();
 }

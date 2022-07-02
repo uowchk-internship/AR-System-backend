@@ -30,6 +30,13 @@ public class Argo10ServicesImpl implements Argo10Services{
     }
 
     @Override
+    @Transactional
+    public void testConnection() {
+        argo10DAOService.testConnection();
+    }
+
+    @Override
+    @Transactional
     public void removeAll() {
         argo10DAOService.removeAll();
     }
