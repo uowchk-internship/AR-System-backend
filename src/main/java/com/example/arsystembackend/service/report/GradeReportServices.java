@@ -7,19 +7,21 @@ import com.lowagie.text.Font;
 import com.lowagie.text.pdf.*;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
+import java.io.OutputStream;
 
 @Service
 public class GradeReportServices {
     private GradeReport studentReport;
 
-    public void export(HttpServletResponse response, GradeReport studentReport) throws DocumentException, IOException {
+    public void export(OutputStream response, GradeReport studentReport) throws DocumentException, IOException {
         this.studentReport = studentReport;
 
         Document document = new Document(PageSize.A4);
-        PdfWriter.getInstance(document, response.getOutputStream());
+        PdfWriter.getInstance(document, response);
 
         document.open();
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
@@ -29,10 +31,6 @@ public class GradeReportServices {
         p.setAlignment(Paragraph.ALIGN_CENTER);
 
         document.add(p);
-
-
-//        writeTableHeader(table);
-//        writeTableData(table);
 
         document.add(studentInfo());
         document.add(detailTable());
@@ -124,9 +122,11 @@ public class GradeReportServices {
                 detailTableRow(table, gradeReportItem);
             }
         }
-        detailTableSectionHeader(table, "Elective Group 1");
-        for (GradeReportItem gradeReportItem : studentReport.getElectiveGroup1()) {
-            detailTableRow(table, gradeReportItem);
+        if (studentReport.getElectiveGroup1().size() != 0) {
+            detailTableSectionHeader(table, "Elective Group 1");
+            for (GradeReportItem gradeReportItem : studentReport.getElectiveGroup1()) {
+                detailTableRow(table, gradeReportItem);
+            }
         }
         if (studentReport.getElectiveGroup2().size() != 0) {
             detailTableSectionHeader(table, "Elective Group 2");

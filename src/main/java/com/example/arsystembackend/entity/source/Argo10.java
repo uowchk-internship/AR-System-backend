@@ -305,4 +305,36 @@ public class Argo10 {
     public int hashCode() {
         return Objects.hash(id, cohort, internalId, studentId, lastName, firstName, middleName, enrolYearTerm, progCode, studStatus, deptCode, blockCode, shrtcknTermCode, shrtcknSubjCode, shrtcknCrseNumb, shrtcknCrseTitle, shrtckgCreditHours, shrtckgHoursAttempted, shrtckgGrdeCodeFinal, excludeSubject, gradePoint, countGpaInd, instName, attemptedInd, passedInd, completedInd);
     }
+
+    @Override
+    public String toString() {
+        return "Argo10{" +
+                "id=" + id +
+                ", cohort='" + cohort + '\'' +
+                ", internalId='" + internalId + '\'' +
+                ", studentId='" + studentId + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", enrolYearTerm='" + enrolYearTerm + '\'' +
+                ", progCode='" + progCode + '\'' +
+                ", studStatus='" + studStatus + '\'' +
+                ", deptCode='" + deptCode + '\'' +
+                ", blockCode='" + blockCode + '\'' +
+                ", shrtcknTermCode='" + shrtcknTermCode + '\'' +
+                ", shrtcknSubjCode='" + shrtcknSubjCode + '\'' +
+                ", shrtcknCrseNumb='" + shrtcknCrseNumb + '\'' +
+                ", shrtcknCrseTitle='" + shrtcknCrseTitle + '\'' +
+                ", shrtckgCreditHours=" + shrtckgCreditHours +
+                ", shrtckgHoursAttempted=" + shrtckgHoursAttempted +
+                ", shrtckgGrdeCodeFinal='" + shrtckgGrdeCodeFinal + '\'' +
+                ", excludeSubject='" + excludeSubject + '\'' +
+                ", gradePoint=" + gradePoint +
+                ", countGpaInd='" + countGpaInd + '\'' +
+                ", instName='" + instName + '\'' +
+                ", attemptedInd='" + attemptedInd + '\'' +
+                ", passedInd='" + passedInd + '\'' +
+                ", completedInd='" + completedInd + '\'' +
+                '}';
+    }
 }
