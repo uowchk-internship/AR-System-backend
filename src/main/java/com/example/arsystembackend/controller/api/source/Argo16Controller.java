@@ -1,14 +1,14 @@
-package com.example.arsystembackend.controller.api;
+package com.example.arsystembackend.controller.api.source;
 
 import com.example.arsystembackend.entity.Argo16;
-import com.example.arsystembackend.service.Argo16Services;
+import com.example.arsystembackend.service.source.Argo16Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/argo16")
+@RequestMapping("/api/source/argo16")
 public class Argo16Controller {
 
     private Argo16Services argo16Services;

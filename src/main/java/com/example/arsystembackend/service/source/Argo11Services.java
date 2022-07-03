@@ -1,4 +1,4 @@
-package com.example.arsystembackend.service;
+package com.example.arsystembackend.service.source;
 
 import com.example.arsystembackend.entity.Argo10;
 import com.example.arsystembackend.entity.Argo11;

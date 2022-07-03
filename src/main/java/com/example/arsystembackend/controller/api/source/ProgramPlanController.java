@@ -1,17 +1,14 @@
-package com.example.arsystembackend.controller.api;
+package com.example.arsystembackend.controller.api.source;
 
-import com.example.arsystembackend.dao.ProgramPlanDAO;
-import com.example.arsystembackend.entity.Argo10;
 import com.example.arsystembackend.entity.ProgramPlan;
-import com.example.arsystembackend.service.Argo10Services;
-import com.example.arsystembackend.service.ProgramPlanServices;
+import com.example.arsystembackend.service.source.ProgramPlanServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/programPlan")
+@RequestMapping("/api/source/programPlan")
 public class ProgramPlanController {
 
     private ProgramPlanServices programPlanServices;

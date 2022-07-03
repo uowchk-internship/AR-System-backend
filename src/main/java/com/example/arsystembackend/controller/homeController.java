@@ -1,6 +1,6 @@
 package com.example.arsystembackend.controller;
 
-import com.example.arsystembackend.service.Argo10Services;
+import com.example.arsystembackend.service.source.Argo10Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
