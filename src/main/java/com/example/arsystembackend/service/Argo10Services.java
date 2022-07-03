@@ -10,7 +10,7 @@ public interface Argo10Services {
 
     public List<Argo10> getAll();
 
-    public void testConnection();
+    public long count();
 
     public void removeAll();
 

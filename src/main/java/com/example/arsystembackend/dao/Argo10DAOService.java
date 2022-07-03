@@ -35,10 +35,10 @@ public class Argo10DAOService implements Argo10DAO{
     }
 
     @Override
-    public void testConnection() {
+    public long count() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("FROM Argo10", Argo10.class);
-        query.getFirstResult();
+        Query query = currentSession.createQuery("SELECT count(a.id) FROM Argo10 a", Long.class);
+        return (long) query.getSingleResult();
     }
 
     @Override

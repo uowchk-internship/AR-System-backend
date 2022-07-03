@@ -11,7 +11,7 @@ public interface Argo11Services {
 
     public List<Argo11> getAll();
 
-    public void testConnection();
+    public long count();
 
     public void removeAll();
 

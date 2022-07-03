@@ -9,7 +9,7 @@ public interface Argo29DAO {
 
     public List<Argo29> getAll();
 
-    public void testConnection();
+    public long count();
 
     public void removeAll();
 

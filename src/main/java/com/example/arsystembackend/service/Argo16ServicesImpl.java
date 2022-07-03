@@ -31,8 +31,8 @@ public class Argo16ServicesImpl implements Argo16Services{
 
     @Override
     @Transactional
-    public void testConnection() {
-        argo16DAOService.testConnection();
+    public long count() {
+        return argo16DAOService.count();
     }
 
     @Override

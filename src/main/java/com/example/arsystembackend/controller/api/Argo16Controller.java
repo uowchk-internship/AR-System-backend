@@ -30,8 +30,8 @@ public class Argo16Controller {
     }
 
     @GetMapping("/count")
-    public int getArgo16Count() {
-        return argo16Services.getAll().size();
+    public long getArgo16Count() {
+        return argo16Services.count();
     }
 
 

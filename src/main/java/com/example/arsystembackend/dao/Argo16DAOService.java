@@ -37,10 +37,10 @@ public class Argo16DAOService implements Argo16DAO{
     }
 
     @Override
-    public void testConnection() {
+    public long count() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("FROM Argo16", Argo16.class);
-        query.getFirstResult();
+        Query query = currentSession.createQuery("SELECT count(a.id) FROM Argo16 a", Long.class);
+        return (long) query.getSingleResult();
     }
 
     @Override

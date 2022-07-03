@@ -10,7 +10,7 @@ public interface Argo16Services {
 
     public List<Argo16> getAll();
 
-    public void testConnection();
+    public long count();
 
     public void removeAll();
 

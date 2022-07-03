@@ -17,7 +17,7 @@ public class homeController {
 
     @GetMapping("/")
     public String HomeControllerAPI() {
-        argo10Services.testConnection();
+        argo10Services.count();
         return "Hello world";
     }
 }

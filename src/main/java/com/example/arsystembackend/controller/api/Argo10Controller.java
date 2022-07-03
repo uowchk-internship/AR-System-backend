@@ -30,8 +30,8 @@ public class Argo10Controller {
     }
 
     @GetMapping("/count")
-    public int getArgo10Count() {
-        return argo10Services.getAll().size();
+    public long getArgo10Count() {
+        return argo10Services.count();
     }
 
 
