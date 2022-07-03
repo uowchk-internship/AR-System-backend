@@ -1,7 +1,7 @@
 package com.example.arsystembackend.dao;
 
-import com.example.arsystembackend.entity.source.Argo10;
 import com.example.arsystembackend.entity.source.Argo11;
+import com.example.arsystembackend.entity.source.Cge;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,51 +11,52 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class Argo10DAOService implements Argo10DAO{
+public class CgeDAOService implements CgeDAO{
     private EntityManager entityManager;
 
     @Autowired
-    public Argo10DAOService(EntityManager entityManager) {
+    public CgeDAOService(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
-    public void saveData(List<Argo10> argo10List) {
+    public void saveData(List<Cge> cgeList) {
         Session currentSession = entityManager.unwrap(Session.class);
-        for (Argo10 argo10:argo10List){
-            currentSession.saveOrUpdate(argo10);
+        for (Cge cge:cgeList){
+            currentSession.saveOrUpdate(cge);
         }
     }
 
     @Override
-    public List<Argo10> getAll() {
+    public List<Cge> getAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("FROM Argo10", Argo10.class);
-        List<Argo10> users = query.getResultList();
+        Query query = currentSession.createQuery("FROM Cge", Cge.class);
+        List<Cge> users = query.getResultList();
         return users;
     }
 
     @Override
-    public List<Argo10> getSingleStudent(String sid) {
+    public Cge getSingleCourse(String courseCode) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("FROM Argo10 a WHERE a.studentId=:sid", Argo10.class);
-        query.setParameter("sid", sid);
-        List<Argo10> resultList = query.getResultList();
-        return resultList;
+        Query query = currentSession.createQuery("FROM Cge a WHERE a.code=:code", Cge.class);
+        query.setParameter("code", courseCode);
+        Cge cge = (Cge) query.getSingleResult();
+        return cge;
     }
-
 
     @Override
     public long count() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query query = currentSession.createQuery("SELECT count(a.id) FROM Argo10 a", Long.class);
-        return (long) query.getSingleResult();
+        Query query = currentSession.createQuery("FROM Cge", Cge.class);
+        List<Cge> cges = query.getResultList();
+        return (long) cges.size();
     }
 
     @Override
     public void removeAll() {
         Session currentSession = entityManager.unwrap(Session.class);
-        currentSession.createQuery("DELETE FROM Argo10")
+        currentSession.createQuery("DELETE FROM Cge")
                 .executeUpdate();
     }
+
 }

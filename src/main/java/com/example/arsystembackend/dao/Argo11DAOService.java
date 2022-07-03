@@ -1,7 +1,6 @@
 package com.example.arsystembackend.dao;
 
-import com.example.arsystembackend.entity.Argo10;
-import com.example.arsystembackend.entity.Argo11;
+import com.example.arsystembackend.entity.source.Argo11;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,6 +32,15 @@ public class Argo11DAOService implements Argo11DAO{
         Query query = currentSession.createQuery("FROM Argo11", Argo11.class);
         List<Argo11> users = query.getResultList();
         return users;
+    }
+
+    @Override
+    public Argo11 getSingleStudent(String sid) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query query = currentSession.createQuery("FROM Argo11 a WHERE a.studentId=:sid", Argo11.class);
+        query.setParameter("sid", sid);
+        Argo11 argo11 = (Argo11) query.getSingleResult();
+        return argo11;
     }
 
     @Override

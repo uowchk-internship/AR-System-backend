@@ -1,6 +1,6 @@
 package com.example.arsystembackend.controller.api.source;
 
-import com.example.arsystembackend.entity.Argo16;
+import com.example.arsystembackend.entity.source.Argo16;
 import com.example.arsystembackend.service.source.Argo16Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

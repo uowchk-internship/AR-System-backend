@@ -1,7 +1,7 @@
 package com.example.arsystembackend.service.source;
 
 import com.example.arsystembackend.dao.ProgramPlanDAOService;
-import com.example.arsystembackend.entity.ProgramPlan;
+import com.example.arsystembackend.entity.source.ProgramPlan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +28,12 @@ public class ProgramPlanServicesImpl implements ProgramPlanServices{
     @Transactional
     public List<ProgramPlan> getAll() {
         return programPlanDAOService.getAll();
+    }
+
+    @Override
+    @Transactional
+    public List<ProgramPlan> getSingleProgramPlan(String programName) {
+        return programPlanDAOService.getSingleProgramPlan(programName);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.example.arsystembackend.dao;
 
-import com.example.arsystembackend.entity.Argo29;
-import com.example.arsystembackend.entity.ProgramPlan;
+import com.example.arsystembackend.entity.source.Argo29;
+import com.example.arsystembackend.entity.source.ProgramPlan;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,6 +35,16 @@ public class ProgramPlanDAOService implements ProgramPlanDAO {
         List<ProgramPlan> programPlans = query.getResultList();
         return programPlans;
     }
+
+    @Override
+    public List<ProgramPlan> getSingleProgramPlan(String programName) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query query = currentSession.createQuery("FROM ProgramPlan a WHERE a.program=:programName", ProgramPlan.class);
+        query.setParameter("programName", programName);
+        List<ProgramPlan> programPlans = query.getResultList();
+        return programPlans;
+    }
+
 
     @Override
     public long count() {

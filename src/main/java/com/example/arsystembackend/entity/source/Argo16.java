@@ -1,4 +1,4 @@
-package com.example.arsystembackend.entity;
+package com.example.arsystembackend.entity.source;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

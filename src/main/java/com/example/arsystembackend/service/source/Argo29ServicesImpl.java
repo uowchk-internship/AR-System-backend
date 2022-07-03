@@ -1,7 +1,7 @@
 package com.example.arsystembackend.service.source;
 
 import com.example.arsystembackend.dao.Argo29DAOService;
-import com.example.arsystembackend.entity.Argo29;
+import com.example.arsystembackend.entity.source.Argo29;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +27,12 @@ public class Argo29ServicesImpl implements Argo29Services{
     @Transactional
     public List<Argo29> getAll() {
         return argo29DAOService.getAll();
+    }
+
+    @Override
+    @Transactional
+    public List<Argo29> getSingleStudent(String sid) {
+        return argo29DAOService.getSingleStudent(sid);
     }
 
     @Override
