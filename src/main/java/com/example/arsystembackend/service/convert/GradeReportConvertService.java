@@ -17,11 +17,7 @@ public class GradeReportConvertService {
     private Argo29Services argo29Services;
     private ProgramPlanServices programPlanServices;
     private CgeServices cgeServices;
-    private Map<String, String> courseGradeConvert = Map.of(
-            "A+", "4.3", "A", "4", "A-", "3.7",
-            "B+", "3.3", "B", "3", "B-", "2.7",
-            "C+", "2.3", "C", "2", "C-", "1.7",
-            "D", "1");
+    private Map<String, String> courseGradeConvert = new HashMap<>();
 
     //Get related information from db
 
@@ -42,6 +38,17 @@ public class GradeReportConvertService {
         this.argo29Services = argo29Services;
         this.programPlanServices = programPlanServices;
         this.cgeServices = cgeServices;
+
+        this.courseGradeConvert.put("A+","4.3");
+        this.courseGradeConvert.put("A","4");
+        this.courseGradeConvert.put("A-","3.7");
+        this.courseGradeConvert.put("B+","3.3");
+        this.courseGradeConvert.put("B","3");
+        this.courseGradeConvert.put("B-","2.7");
+        this.courseGradeConvert.put("C+","2.3");
+        this.courseGradeConvert.put("C","2");
+        this.courseGradeConvert.put("C-","1.7");
+        this.courseGradeConvert.put("D","1");
 
         List<Argo10> fullArgo10List = argo10Services.getAll();
         List<Argo11> fullArgo11List = argo11Services.getAll();
