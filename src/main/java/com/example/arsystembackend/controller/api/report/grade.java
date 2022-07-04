@@ -39,7 +39,7 @@ public class grade {
         response.addHeader("Content-Disposition", fileHeader);
 
         //Get student info
-        GradeReport reportInfo = gradeReportConvertService.getSingleStudent("70001235");
+        GradeReport reportInfo = gradeReportConvertService.getSingleStudent("70001235",false);
 
         GradeReportServices gradeReportServices = new GradeReportServices();
         gradeReportServices.export(response.getOutputStream(), reportInfo);
