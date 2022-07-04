@@ -135,4 +135,3 @@ create table program_plan
     constraint program_plan_id_uindex
         unique (id)
 );
-
