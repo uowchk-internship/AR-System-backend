@@ -53,6 +53,15 @@ public class GradeReportConvertService {
     }
 
     public void updateHashmap(){
+        //Reset hashmap
+        argo10Map = new HashMap<>();
+        argo11Map = new HashMap<>();
+        argo16Map = new HashMap<>();
+        argo29Map = new HashMap<>();
+        programPlanMap = new HashMap<>();
+        cgeMap = new HashMap<>();
+
+
         List<Argo10> fullArgo10List = argo10Services.getAll();
         List<Argo11> fullArgo11List = argo11Services.getAll();
         List<Argo16> fullArgo16List = argo16Services.getAll();
@@ -237,6 +246,7 @@ public class GradeReportConvertService {
         List<GradeReport> gradeReports = new ArrayList<>();
         List<Argo11> allStudents = argo11Services.getAll();
 
+        updateHashmap();
         int noProgram = 0;
         int noArgo11 = 0;
         for (Argo11 argo11 : allStudents) {
