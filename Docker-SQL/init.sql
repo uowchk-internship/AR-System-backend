@@ -1,3 +1,5 @@
+Create database `ar-source`;
+USE `ar-source`;
 create table argo10
 (
     id                      int auto_increment
