@@ -97,6 +97,9 @@
         </profile>
         <profile>
             <id>war</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <packaging.type>war</packaging.type>
             </properties>

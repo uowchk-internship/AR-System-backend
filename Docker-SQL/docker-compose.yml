@@ -12,3 +12,16 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: root
 
+  backend:
+    image: unclechuen/ar-backend
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - AR_SPRING_URL=jdbc:mariadb://db:3306/ar-source
+
+  frontend:
+    image: unclechuen/ar-frontend
+    restart: always
+    ports:
+      - 3000:3000
