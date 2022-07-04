@@ -4,8 +4,13 @@ services:
   backend:
     image: unclechuen/ar-backend
     restart: always
+    environment:
+      - AR_SPRING_URL = jdbc:mysql://admin.johnnyip.com:3306/ar-source
+      - AR_SPRING_USERNAME = uow
+      - AR_SPRING_PASSWORD = UOWuow123!
     ports:
       - 8080:8080
+
   frontend:
     image: unclechuen/ar-frontend
     restart: always
