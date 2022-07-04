@@ -50,6 +50,9 @@ public class GradeReportConvertService {
         this.courseGradeConvert.put("C-","1.7");
         this.courseGradeConvert.put("D","1");
 
+    }
+
+    public void updateHashmap(){
         List<Argo10> fullArgo10List = argo10Services.getAll();
         List<Argo11> fullArgo11List = argo11Services.getAll();
         List<Argo16> fullArgo16List = argo16Services.getAll();
@@ -113,9 +116,13 @@ public class GradeReportConvertService {
             cgeMap.put(item.getCode(), item);
         }
 
+
     }
 
-    public GradeReport getSingleStudent(String sid) {
+    public GradeReport getSingleStudent(String sid, boolean multiple) {
+        if (!multiple){
+            updateHashmap();
+        }
         //Get related information from db
         List<Argo10> argo10List = argo10Map.get(sid);
         Argo11 argo11 = argo11Map.get(sid);
@@ -234,7 +241,7 @@ public class GradeReportConvertService {
         int noArgo11 = 0;
         for (Argo11 argo11 : allStudents) {
             if (programPlanMap.get(argo11.getProgCode().toUpperCase()) != null && argo10Map.get(argo11.getStudentId()) != null) {
-                gradeReports.add(getSingleStudent(argo11.getStudentId()));
+                gradeReports.add(getSingleStudent(argo11.getStudentId(),true));
             } else if (programPlanMap.get(argo11.getProgCode().toUpperCase()) != null) {
                 noProgram++;
             } else if (argo10Map.get(argo11.getStudentId()) != null) {
